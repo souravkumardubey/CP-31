@@ -14,7 +14,7 @@ using namespace std;
 #define rev(n,i)          for(i=N-1;i>=0;i--)
 #define all(x)            (x).begin(),(x).end()
 #define allr(x)            (x).rbegin(),(x).rend()
-// #define uniq(v)           (v).erase(unique(all(v)),(v).end())
+#define uniq(v)           (v).erase(unique(all(v)),(v).end())
 #define sz(x)             (int)((x).size())
 #define out(x)            cout << x
 #define YES               cout << "YES\n";
@@ -56,18 +56,18 @@ lli mod_inverse(lli x) {
 
 }
 
-// lli lengthOfLIS(vector<lli>& nums) {
-//     int n = nums.size();
-//     set<lli> se;
-//     int flag = 0;
-//     for(int i = 0; i<n; ++i){
-//         if(se.lower_bound(nums[i]) != se.end()){
-//             se.erase(se.lower_bound(nums[i]));
-//         }
-//         se.insert(nums[i]);
-//     }
-//     return se.size() ;
-// }
+lli lengthOfLIS(vector<lli>& nums) {
+    int n = nums.size();
+    set<lli> se;
+    int flag = 0;
+    for(int i = 0; i<n; ++i){
+        if(se.lower_bound(nums[i]) != se.end()){
+            se.erase(se.lower_bound(nums[i]));
+        }
+        se.insert(nums[i]);
+    }
+    return se.size() ;
+}
 
 lli getGCD(lli a, lli b) {
 
@@ -158,22 +158,22 @@ bool isPrime(lli n) {
     
 }
 
-// bool isSubsequence(string s, string t) {
+bool isSubsequence(string s, string t) {
     
-//     int i = 0;
+    int i = 0;
     
-//     for (auto j : t) {
+    for (auto j : t) {
         
-//         if (s[i] == j) i += 1;
-//         if (i == s.size()) return true;
+        if (s[i] == j) i += 1;
+        if (i == s.size()) return true;
         
-//     }
+    }
     
-//     return (i == s.size());
+    return (i == s.size());
     
-// }
+}
 
-// bool isPowerOfTwo (lli n) { return ppc(n) == 1; }
+bool isPowerOfTwo (lli n) { return ppc(n) == 1; }
 
 lli getMEX(vector < lli > vec) {
     
@@ -221,9 +221,6 @@ public:
 
     }
 };
-
-
-
 
 // void usaco(string filename) {
 
